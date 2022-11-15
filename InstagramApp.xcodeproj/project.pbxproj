@@ -11,6 +11,8 @@
 		4636C4652922E34D00EC48C4 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636C4642922E34D00EC48C4 /* DatabaseManager.swift */; };
 		4636C4672922E4C400EC48C4 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636C4662922E4C400EC48C4 /* AuthManager.swift */; };
 		4636C4692922E51000EC48C4 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636C4682922E51000EC48C4 /* StorageManager.swift */; };
+		4636C46C29238B0100EC48C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636C46B29238B0100EC48C4 /* Extensions.swift */; };
+		4636C46E29238D9A00EC48C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636C46D29238D9A00EC48C4 /* Constants.swift */; };
 		464CFBD12922C4A800361B6A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CFBD02922C4A800361B6A /* LoginViewController.swift */; };
 		464CFBD32922C4B800361B6A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CFBD22922C4B800361B6A /* RegisterViewController.swift */; };
 		464CFBD52922C56C00361B6A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CFBD42922C56C00361B6A /* PostViewController.swift */; };
@@ -41,6 +43,8 @@
 		4636C4642922E34D00EC48C4 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		4636C4662922E4C400EC48C4 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		4636C4682922E51000EC48C4 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		4636C46B29238B0100EC48C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4636C46D29238D9A00EC48C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		464CFBD02922C4A800361B6A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		464CFBD22922C4B800361B6A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		464CFBD42922C56C00361B6A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 			path = General;
 			sourceTree = "<group>";
 		};
+		4636C46A29238AF100EC48C4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4636C46B29238B0100EC48C4 /* Extensions.swift */,
+				4636C46D29238D9A00EC48C4 /* Constants.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		464CFBCD2922C43800361B6A /* Core Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				4685F743291AF32B00805CBF /* Resources */,
+				4636C46A29238AF100EC48C4 /* Helper */,
 				4685F744291AF33600805CBF /* Views */,
 				4685F741291AF31D00805CBF /* Models */,
 				4685F742291AF32400805CBF /* Controllers */,
@@ -342,6 +356,7 @@
 				4636C4692922E51000EC48C4 /* StorageManager.swift in Sources */,
 				464CFBD32922C4B800361B6A /* RegisterViewController.swift in Sources */,
 				4685F735291AD5BC00805CBF /* InstagramApp.xcdatamodeld in Sources */,
+				4636C46E29238D9A00EC48C4 /* Constants.swift in Sources */,
 				464CFBDB2922C5D800361B6A /* ListViewViewController.swift in Sources */,
 				4685F72F291AD5BC00805CBF /* HomeViewController.swift in Sources */,
 				4685F747291AF48000805CBF /* ExploreViewController.swift in Sources */,
@@ -356,6 +371,7 @@
 				464CFBD92922C5CA00361B6A /* SettingsViewController.swift in Sources */,
 				4685F749291AF49500805CBF /* CameraViewController.swift in Sources */,
 				464CFBDF2922C60000361B6A /* SearchResultViewController.swift in Sources */,
+				4636C46C29238B0100EC48C4 /* Extensions.swift in Sources */,
 				464CFBD52922C56C00361B6A /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,8 +526,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,8 +554,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
