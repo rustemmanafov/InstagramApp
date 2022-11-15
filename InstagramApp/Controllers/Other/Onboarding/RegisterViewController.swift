@@ -27,7 +27,6 @@ class RegisterViewController: UIViewController {
     
     private let emailField: UITextField = {
         let field = UITextField()
-        field.isSecureTextEntry = true
         field.placeholder = "Email Address"
         field.returnKeyType = .continue
         field.leftViewMode = .always
@@ -45,6 +44,7 @@ class RegisterViewController: UIViewController {
     private let passwordField: UITextField = {
         let field = UITextField()
         field.placeholder = "Password"
+        field.isSecureTextEntry = true
         field.returnKeyType = .next
         field.leftViewMode = .always
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
@@ -103,6 +103,16 @@ class RegisterViewController: UIViewController {
               let password = passwordField.text, !password.isEmpty, password.count >= 8,
               let username = usernameField.text, !username.isEmpty else {
             return
+        }
+        
+        AuthManager.shared.registerNewUSer(username: username, email: email, password: password) { registered in
+            DispatchQueue.main.async {
+                if registered {
+                    
+                } else {
+                    
+                }
+            }
         }
     }
 }
