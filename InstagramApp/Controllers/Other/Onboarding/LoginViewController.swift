@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
     }()
     
     private let loginButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Log in", for: .normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = Constants.cornerRadius
@@ -54,21 +54,21 @@ class LoginViewController: UIViewController {
     }()
     
     private let termsButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Terms of Serviced", for: .normal)
         button.setTitleColor(.secondaryLabel, for: .normal)
         return button
     }()
     
     private let privacyButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Privacy Policy", for: .normal)
         button.setTitleColor(.secondaryLabel, for: .normal)
         return button
     }()
     
     private let createAccountButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitleColor(.label, for: .normal)
         button.setTitle("New User? Create an Account", for: .normal)
         return button
@@ -81,7 +81,7 @@ class LoginViewController: UIViewController {
         header.addSubview(backroundImageView)
         return header
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,8 +89,8 @@ class LoginViewController: UIViewController {
         createAccountButton.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
         termsButton.addTarget(self, action: #selector(didTapTermsButton), for: .touchUpInside)
         privacyButton.addTarget(self, action: #selector(didTapPrivacyButton), for: .touchUpInside)
-
-
+        
+        
         usernameEmailTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -162,16 +162,16 @@ class LoginViewController: UIViewController {
                                  height: headerView.height - view.safeAreaInsets.top)
     }
     
-   private func addSubview() {
-       view.addSubview(usernameEmailTextField)
-       view.addSubview(passwordTextField)
-       view.addSubview(loginButton)
-       view.addSubview(termsButton)
-       view.addSubview(privacyButton)
-       view.addSubview(headerView)
-       view.addSubview(createAccountButton)
+    private func addSubview() {
+        view.addSubview(usernameEmailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(loginButton)
+        view.addSubview(termsButton)
+        view.addSubview(privacyButton)
+        view.addSubview(headerView)
+        view.addSubview(createAccountButton)
     }
-
+    
     @objc private func didTapLoginButton() {
         passwordTextField.resignFirstResponder()
         usernameEmailTextField.resignFirstResponder()
@@ -224,7 +224,6 @@ class LoginViewController: UIViewController {
         vc.title = "Create Account"
         present(UINavigationController(rootViewController: vc), animated: true)
     }
-
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -237,6 +236,4 @@ extension LoginViewController: UITextFieldDelegate {
         }
         return true
     }
-    
-    
 }
