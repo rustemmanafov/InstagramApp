@@ -1,9 +1,7 @@
-//
 //  SettingsViewController.swift
 //  InstagramApp
 //
 //  Created by Rustem Manafov on 14.11.22.
-//
 
 import UIKit
 
@@ -19,7 +17,7 @@ final class SettingsViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
-
+    
     private var data = [[SettingCellModel]]()
     
     override func viewDidLoad() {
@@ -35,6 +33,7 @@ final class SettingsViewController: UIViewController {
         tableView.frame = view.bounds
     }
     
+    
     private func configureModels() {
         let section = [
             SettingCellModel(title: "Log out") { [weak self] in
@@ -45,7 +44,28 @@ final class SettingsViewController: UIViewController {
     }
     
     private func didTapLogOut() {
-        
+        let actionSheet = UIAlertController(title: "Log out", message: "Are you sure uou want to log out?", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { _ in
+            AuthManager.shared.logOut(completion: { success in
+                
+                DispatchQueue.main.async {
+                    if success {
+                        let vc = LoginViewController()
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true) {
+                            self.navigationController?.popToRootViewController(animated: false)
+                            self.tabBarController?.selectedIndex = 0
+                        }
+                    } else {
+                        print("Could not log out user")
+                    }
+                }
+            })
+        }))
+        actionSheet.popoverPresentationController?.sourceView  = tableView
+        actionSheet.popoverPresentationController?.sourceRect = tableView.bounds
+        present(actionSheet, animated: true)
     }
 }
 
