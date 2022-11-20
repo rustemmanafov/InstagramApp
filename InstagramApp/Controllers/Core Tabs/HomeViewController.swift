@@ -9,15 +9,32 @@ import UIKit
 import FirebaseAuth
 
 class HomeViewController: UIViewController {
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        do {
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // do {
         //          try Auth.auth().signOut()
         //        } catch {
         //            print("failed to sign out")
         //        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        tableView.frame = view.bounds
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -34,3 +51,14 @@ class HomeViewController: UIViewController {
     }
 }
 
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        return cell
+    }
+}
