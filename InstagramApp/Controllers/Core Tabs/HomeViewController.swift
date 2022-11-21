@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(IGFeedPostTableViewCell.self, forCellReuseIdentifier: IGFeedPostTableViewCell.identifier)
         
         return tableView
     }()
@@ -57,8 +57,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.identifier, for: indexPath) as! IGFeedPostTableViewCell
         
         return cell
+    }
+    
+    public func configure() {
+        
     }
 }
