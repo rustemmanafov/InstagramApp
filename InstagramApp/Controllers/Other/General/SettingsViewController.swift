@@ -4,6 +4,7 @@
 //  Created by Rustem Manafov on 14.11.22.
 
 import UIKit
+import SafariServices
 
 struct SettingCellModel {
     let title: String
@@ -74,20 +75,23 @@ final class SettingsViewController: UIViewController {
     private func openURL(type: SettingURLType) {
         let urlString: String
         switch type {
-        case .terms: urlString = ""
-        case .privacy: urlString = ""
-        case .help: urlString = ""
+        case .terms: urlString = "https://help.instagram.com/581066165581870"
+        case .privacy: urlString = "https://help.instagram.com/155833707900388"
+        case .help: urlString = "https://help.instagram.com"
         }
         
-        guard let url = URL(string: urlString) else {
-            
-            return
-
-        }
+        guard let url = URL(string: urlString) else { return }
+        
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
     }
     
     private func didTapEditProfile() {
-        
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
     }
     
     private func didTapInviteFriends() {
