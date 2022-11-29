@@ -33,13 +33,4 @@ public class StorageManager {
             completion(.success(url))
         })
     }
-    
-}
-
-public enum UserPostType {
-    case photo, video
-}
-
-public struct UserPost {
-    let postType: UserPostType
 }
