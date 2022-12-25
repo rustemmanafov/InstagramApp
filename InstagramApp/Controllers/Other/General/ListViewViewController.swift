@@ -9,7 +9,8 @@ import UIKit
 
 class ListViewViewController: UIViewController {
     
-    private let data: [String]
+    
+    private let data: [UserRelationship]
     
     private let tableView: UITableView = {
        let tableView = UITableView()
@@ -17,7 +18,7 @@ class ListViewViewController: UIViewController {
         return tableView
     }()
     
-    init(data: [String]) {
+    init(data: [UserRelationship]) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
     }
@@ -30,7 +31,7 @@ class ListViewViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
+        view.addSubview(tableView)
         view.backgroundColor = .systemBackground
         
     }
@@ -56,7 +57,8 @@ extension ListViewViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier, for: indexPath) as! UserFollowTableViewCell
-        cell.configure(with: "")
+        cell.configure(with: data[indexPath.row])
+        cell.delegate = self
         return cell
     }
     
@@ -64,6 +66,23 @@ extension ListViewViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let model = data[indexPath.row]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+    
+    
+}
+
+extension ListViewViewController: UserFollowTableViewCellDelegate {
+    func didTabFollowUnfollowButton(model: UserRelationship) {
+        switch model.type {
+        case .following:
+            break
+        case .not_following:
+            break
+        }
     }
     
     
